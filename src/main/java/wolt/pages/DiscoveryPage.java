@@ -1,16 +1,13 @@
 package wolt.pages;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class HomePage extends Page {
+public class DiscoveryPage extends Page {
 
     protected static By categoryName = By.cssSelector(".CategoryCardBody__Header-sc-1quwqfy-2");
 
@@ -21,6 +18,11 @@ public class HomePage extends Page {
     public List<String> getRestaurantCategoriesTexts() {
         $(categoryName).shouldBe(visible);
         return $$(categoryName).texts();
+    }
+
+    public Homepage clickOnLogo () {
+    $(logo).click();
+    return page(Homepage.class);
     }
 
 }

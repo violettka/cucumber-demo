@@ -8,6 +8,8 @@ import static com.codeborne.selenide.Selenide.actions;
 
 public abstract class Page {
 
+    protected static By logo = By.id("lottie");
+
     public void accCookies() {
         SelenideElement element = $(By.xpath("//button[2]/div[2]"));
         if (element.exists()){
