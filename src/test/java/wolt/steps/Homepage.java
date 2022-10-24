@@ -1,6 +1,7 @@
 package wolt.steps;
 
 import com.codeborne.selenide.Condition;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,21 +15,21 @@ import static wolt.Constants.BASE_URL;
 
 
 public class Homepage {
-    HomePage homepPage = new HomePage();
+    HomePage homePage = new HomePage();
     @Given("I open a Homepage in {}")
     public void iOpenAHomepage(String city) {
        open(BASE_URL + city.toLowerCase());
-        homepPage.accCookies();
+        homePage.accCookies();
     }
 
     @When("I click on {} menu option")
     public void iSeeMenuOption(String menuOption) {
-        homepPage.clickOnMenu(menuOption);
+        homePage.clickOnMenu(menuOption);
     }
 
     @Then("I see {} restaurant category")
     public void iSeeRestaurantCategory(String category) {
-        List<String> categories =  homepPage.getRestaurantCategoriesSize().texts();
+        List<String> categories =  homePage.getRestaurantCategoriesTexts();
         Assert.assertTrue(categories.contains(category));
     }
 }

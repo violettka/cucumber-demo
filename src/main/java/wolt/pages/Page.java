@@ -10,6 +10,8 @@ public abstract class Page {
 
     public void accCookies() {
         SelenideElement element = $(By.xpath("//button[2]/div[2]"));
-        actions().moveToElement(element).click(element).perform();
+        if (element.exists()){
+            actions().moveToElement(element).click(element).perform();
+        }
     }
 }

@@ -1,6 +1,12 @@
 Feature: Discovery Page
 
-  Scenario: Homepage Restaurant Categories
+  Scenario Outline: Discovery page Restaurant Categories
     Given I open a Homepage in Berlin
-    When I click on Discovery menu option
-    Then I see Asian restaurant category
+    When I click on <menu_option> menu option
+    Then I see <category_1> restaurant category
+    And I see <category_2> restaurant category
+
+    Examples:
+      | menu_option | category_1 | category_2 |  |
+      | Discovery   | Asian      | American   |  |
+      | Restaurants | Burger     | Chicken    |  |
