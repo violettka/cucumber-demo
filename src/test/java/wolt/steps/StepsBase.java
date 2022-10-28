@@ -7,8 +7,8 @@ import wolt.pages.*;
  */
 public class StepsBase {
 
-    public DiscoveryPage discoveryPage = new DiscoveryPage();
-    public static Homepage homepage;
-    public static PrivacyPage privacyPage;
-    public static GiftCardShopPage giftCardShopPage;
+    public static DiscoveryPage discoveryPage = new DiscoveryPage();
+    public static Homepage homepage = new Homepage();
+    public static PrivacyPage privacyPage = new PrivacyPage();
+    public static GiftCardShopPage giftCardShopPage = new GiftCardShopPage();
 }

@@ -54,4 +54,9 @@ public class DiscoverySteps extends StepsBase {
         String text = discoveryPage.getMainHeaderText();
         Assert.assertTrue(text.contains(headerText));
     }
+
+    @And("I see a Discovery page")
+    public void iSeeADiscoveryPage() {
+        discoveryPage.discoveryPageLayoutPresent();
+    }
 }

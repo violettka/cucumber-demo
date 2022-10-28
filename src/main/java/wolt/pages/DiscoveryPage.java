@@ -2,6 +2,8 @@ package wolt.pages;
 
 import org.openqa.selenium.By;
 import java.util.List;
+
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -13,6 +15,7 @@ public class DiscoveryPage extends Page {
     //locators
     protected static By categoryName = By.cssSelector(".CategoryCardBody__Header-sc-1quwqfy-2");
     protected static By quickLink = By.cssSelector(".QuickLinks-module__itemWrapper____Ne1r");
+    protected static By discoveryPageLayout = By.xpath("//div[@data-test-id='MainDiscoveryContent']");
 
     //methods
     public List<String> getRestaurantCategoriesTexts() {
@@ -27,5 +30,9 @@ public class DiscoveryPage extends Page {
     public List<String> getLinkTexts() {
         $(quickLink).shouldBe(visible);
         return $$(quickLink).texts();
+    }
+
+    public void discoveryPageLayoutPresent() {
+        $(discoveryPageLayout).shouldBe(exist);
     }
 }
