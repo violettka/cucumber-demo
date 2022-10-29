@@ -43,10 +43,11 @@ public class GiftCardShopSteps extends StepsBase {
         giftCardShopPage.clickOnGiftsLink();
     }
 
-    @Then("I see {} € Wolt Gift Card")
+    @Then("I see {} Card and click on it")
     public void iSeeGiftCard(String gift) {
         List<String> cards = giftCardShopPage.getGiftCardTexts();
         Assert.assertTrue(cards.contains(gift));
+        giftCardShopPage.clickOnGiftCard();
     }
 
     @And("I close Gift Card Pop-up")
@@ -64,9 +65,8 @@ public class GiftCardShopSteps extends StepsBase {
         giftCardShopPage.clickOnloginToOrderBtn();
     }
 
-    @Then("I Remove from order Gift Card")
+    @And("I Remove from order Gift Card")
     public void iRemoveFromOrderGiftCard() {
         giftCardShopPage.removeFromOrderGiftCard();
-        giftCardShopPage.clickOnCloseBtn();
     }
 }

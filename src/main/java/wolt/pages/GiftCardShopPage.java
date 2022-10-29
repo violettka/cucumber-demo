@@ -24,12 +24,13 @@ public class GiftCardShopPage extends Page {
     protected static By facebookBtn = By.xpath("//button[@data-test-id='MethodSelect.Facebook']");
     protected static By nextBtn = By.xpath("//button[@data-test-id='StepMethodSelect.NextButton']");
     protected static By emailInput = By.xpath("//input[@data-test-id='MethodSelect.EmailInput']");
-    protected static By giftsLink = By.xpath("(//ul)[2]/li");
-    protected static By giftCards = By.xpath("//div[@class='MenuItem-module__itemContainer____1T8k']");
+    protected static By giftsLink = By.xpath("(//a[@font-family='default'])[3]");
+    protected static By giftCards = By.xpath("//*[@data-test-id='menu-item.name']");
     protected static By addToOrderBtn = By.xpath("//span[@data-localization-key='product-modal.submit.add']");
     protected static By loginToOrderBtn = By.xpath("//button[@data-test-id='CartViewButton']");
     protected static By minusBtn = By.xpath("//button[@aria-label='Remove one']");
-    protected static By removeFromOrderBtn = By.xpath("//button[@data-localization-key='product-modal.submit.remove']");
+    protected static By removeFromOrderBtn = By.xpath("//span[@data-localization-key='product-modal.submit.remove']");
+    protected static By activeGiftCard = By.xpath("//span[@data-test-id='CountLabel']");
 
     //methods
     public void clickOnVenueInformationButton() {
@@ -78,8 +79,13 @@ public class GiftCardShopPage extends Page {
         $(loginToOrderBtn).shouldBe(Condition.exist).click();
     }
 
+    public void clickOnGiftCard() {
+        $(giftCards).shouldBe(Condition.exist).click();
+    }
+
     public void removeFromOrderGiftCard() {
+        $(activeGiftCard).shouldBe(Condition.exist).click();
         $(minusBtn).shouldBe(Condition.exist).click();
-        $(removeFromOrderBtn).shouldBe(Condition.exist).click();
+        $(removeFromOrderBtn).doubleClick();
     }
 }

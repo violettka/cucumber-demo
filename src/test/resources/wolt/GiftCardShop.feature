@@ -15,17 +15,15 @@ Feature: Explore Wolt Gift Card Shop
         Then I click on Favorite Button
         And I close the Create an account or log Pop-up
 
-  #      Then I see 10 € Wolt Gift Card
-  #      And I close Gift Card Pop-up
+        Then I see 10€ Wolt Guthaben Card and click on it
+        And I close Gift Card Pop-up
 
-  #      Then I see 15 € Wolt Gift Card
-  #      Then I click on Add To Order Button
-  #      Then I click on Login To Order Button
-  #      And I close the Create an account or log Pop-up
+        Then I see 10€ Wolt Guthaben Card and click on it
+        Then I click on Add To Order Button
+        Then I click on Login To Order Button
+        And I close the Create an account or log Pop-up
+        And I Remove from order Gift Card
 
-  #      Then I see 15 € Wolt Gift Card
-  #      Then I Remove from order Gift Card
-
-  #      Then I click on Gifts Categories
-  #      And I see Gifts page
+        Then I click on Gifts Categories
+        And I see Gifts page
 
