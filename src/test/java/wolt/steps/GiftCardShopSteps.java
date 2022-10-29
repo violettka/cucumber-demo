@@ -14,28 +14,23 @@ public class GiftCardShopSteps extends StepsBase {
     @Then("I click on VenueInformation Button")
     public void iSeeVenueInformationButton() {
         giftCardShopPage.clickOnVenueInformationButton();
+        giftCardShopPage.cityMapPopUp();
     }
 
-    @Then("I close the City Map Pop-up")
+    @Then("I close Pop-up")
     public void iCloseTheCityMap() {
-        giftCardShopPage.cityMapPopUp();
         giftCardShopPage.clickOnCloseBtn();
     }
 
     @Then("I click on Login Button")
     public void iClickOnLoginButton() {
         giftCardShopPage.clickOnLoginBtn();
+        giftCardShopPage.createAccountOrLoginPopUp();
     }
 
     @Then("I click on Favorite Button")
     public void iClickOnFavoriteButton() {
         giftCardShopPage.clickOnFavoriteBtn();
-    }
-
-    @And("I close the Create an account or log Pop-up")
-    public void iCloseTheCreateAnAccountOrLogInPopUp() {
-        giftCardShopPage.createAccountOrLoginPopUp();
-        giftCardShopPage.clickOnCloseBtn();
     }
 
     @Then("I click on Gifts Categories")
@@ -48,11 +43,6 @@ public class GiftCardShopSteps extends StepsBase {
         List<String> cards = giftCardShopPage.getGiftCardTexts();
         Assert.assertTrue(cards.contains(gift));
         giftCardShopPage.clickOnGiftCard();
-    }
-
-    @And("I close Gift Card Pop-up")
-    public void iCloseGiftCardPopUp() {
-        giftCardShopPage.clickOnCloseBtn();
     }
 
     @Then("I click on Add To Order Button")

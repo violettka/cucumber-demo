@@ -6,22 +6,23 @@ Feature: Explore Wolt Gift Card Shop
         And I see a Discovery page
 
         When I click on Send a gift link
+
         Then I click on VenueInformation Button
-        And I close the City Map Pop-up
+        And I close Pop-up
 
         Then I click on Login Button
-        And I close the Create an account or log Pop-up
+        And I close Pop-up
 
         Then I click on Favorite Button
-        And I close the Create an account or log Pop-up
+        And I close Pop-up
 
         Then I see 10€ Wolt Guthaben Card and click on it
-        And I close Gift Card Pop-up
+        And I close Pop-up
 
         Then I see 10€ Wolt Guthaben Card and click on it
         Then I click on Add To Order Button
         Then I click on Login To Order Button
-        And I close the Create an account or log Pop-up
+        And I close Pop-up
         And I Remove from order Gift Card
 
         Then I click on Gifts Categories
