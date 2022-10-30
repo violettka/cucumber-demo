@@ -1,12 +1,9 @@
 Feature: Discovery Page
 
-  Scenario Outline: Discovery page Restaurant Categories
-    Given I open a Homepage in Berlin
-    When I click on <menu_option> menu option
-    Then I see <category_1> restaurant category
-    And I see <category_2> restaurant category
 
-    Examples:
-      | menu_option | category_1 | category_2 |  |
-      | Discovery   | Asian      | American   |  |
-      | Restaurants | Burger     | Chicken    |  |
+  Scenario: Discovery page Join our team! category
+
+    Given I open a Discovery Page in Berlin
+    When I click on NextBtn
+    And I click on WeWantYouCard Join our team! category
+    Then I see CategoryField on JobsPage
