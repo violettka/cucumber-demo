@@ -2,7 +2,7 @@ package wolt.steps;
 
 import io.cucumber.java.en.Then;
 
-public class JobsPage {
+public class JobsSteps {
 
     @Then("I see CategoryField on JobsPage")
     public void iSeeCategoryFieldOnJobsPage() {
@@ -10,4 +10,5 @@ public class JobsPage {
         jobsPage.iSeeCategoryField();
 
     }
+
 }

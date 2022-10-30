@@ -19,5 +19,4 @@ public class JobsPage extends Page {
 
     }
 
-
 }

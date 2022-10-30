@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.page;
  */
 public class DiscoveryPage extends Page {
 
-
     //locators
     protected static By nextBtn = By.xpath("//button[@type='button'])[8]");
     protected static By weWantYouCard = By.className("//*[@class='We want you!']");

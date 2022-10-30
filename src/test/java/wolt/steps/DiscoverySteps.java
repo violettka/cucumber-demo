@@ -32,4 +32,5 @@ public class DiscoverySteps extends StepsBase {
         jobsPage = discoveryPage.clickOnWeWantYouCard();
 
     }
+
 }
