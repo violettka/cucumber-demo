@@ -38,33 +38,8 @@ public class DiscoverySteps extends StepsBase {
         homepage = discoveryPage.clickOnLogo();
     }
 
-    @When("I click All countries link")
-    public void iClickAllCountriesLink(){
-       discoveryPage.clickAllCountriesLink();
-    }
-
-    @Then("I see list of countries")
-    public void iSeeListOfCountries(){
-        discoveryPage.getAllCountriesList();
-    }
-
-    @When("I click Sweden option")
-    public void iClickSwedenOption(){
-        discoveryPage.getSwedenOption();
-    }
-
-    @Then("I see list of cities in Sweden")
-    public void iSeeListOfCitiesInSweden(){
-        discoveryPage.getListOfCitiesInSweden();
-    }
-
-    @When("I click Malmö option")
-    public void iClickMalmoOption(){
-        discoveryPage.getMalmoOption();
-    }
-
-    @Then("I see Malmö Discovery page")
-    public void iSeeMalmoDiscoveryPage(){
-        discoveryPage.getMalmoText();
+    @Then("I see {} Discovery page")
+    public void iSeeCityDiscoveryPage(String city){
+        discoveryPage.checkCityText(city);
     }
 }

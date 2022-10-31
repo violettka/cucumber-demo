@@ -8,8 +8,8 @@ Feature: Country and city location selection
     When I click All countries link
     Then I see list of countries
 
-    When I click Sweden option
+    When I click Sweden country option
     Then I see list of cities in Sweden
 
-    When I click Malmö option
+    When I click Malmö city option
     Then I see Malmö Discovery page

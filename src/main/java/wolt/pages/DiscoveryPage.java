@@ -12,14 +12,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class DiscoveryPage extends Page {
 
     protected static By categoryName = By.cssSelector(".CategoryCardBody__Header-sc-1quwqfy-2");
-    protected static By allCountriesLink = By.xpath("//span[@data-localization-key='front-view.city-selection.all-countries']");
-    protected static By allCountriesList = By.cssSelector(".List-module__listOfCountries___KWT6z");
 
-    protected static By swedenOption = By.xpath("//*[@data-test-id ='front-country-link-SWE']");
-    protected static By listOfCitiesInSweden = By.xpath("//*[@data-test-id ='ListOfCities']");
-    protected static By malmoOption = By.xpath("//*[@data-test-id ='front-city-link-SWE-malmo']");
-    protected static By malmoTextExist=By.cssSelector("#mainContent>nav>div>div.SubNavigationContainer__Start-sc-1fcwc14-1.hDmuOM>button>span>span");
-
+    protected static By cityTextExist = By.cssSelector("#mainContent>nav>div>div.SubNavigationContainer__Start-sc-1fcwc14-1.hDmuOM>button>span>span");
 
     public void clickOnMenu(String menuOption) {
         $(By.linkText(menuOption)).click();
@@ -35,27 +29,10 @@ public class DiscoveryPage extends Page {
         return page(Homepage.class);
     }
 
-    public void clickAllCountriesLink(){
-        $(allCountriesLink).click();
-    }
 
-    public void getAllCountriesList(){
-        $(allCountriesList).shouldBe(exist);
-    }
 
-    public void getSwedenOption(){
-        $(swedenOption).click();
-    }
-
-    public void getListOfCitiesInSweden(){
-        $(listOfCitiesInSweden).shouldBe(exist);
-    }
-
-    public void getMalmoOption(){
-        $(malmoOption).click();
-    }
-
-    public void getMalmoText(){
-        $(malmoTextExist).shouldHave(Condition.text("Malmö"));
+    public void checkCityText(String city) {
+        $(cityTextExist).shouldBe(visible);
+        $(cityTextExist).shouldHave(Condition.text(city));
     }
 }
