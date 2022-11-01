@@ -1,9 +1,15 @@
 package wolt.steps;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import wolt.pages.Homepage;
+
+import static com.codeborne.selenide.Selenide.open;
+import static wolt.Constants.BASE_URL;
 
 public class HomePageSteps extends StepsBase {
+    Homepage homepage;
     @Then("I should see Homepage")
     public void iShouldSeeHomepage() {
         homepage.homePageTextExist();
@@ -32,5 +38,12 @@ public class HomePageSteps extends StepsBase {
     @When("I click {} city option")
     public void iClickCityOption(String city) {
         discoveryPage = homepage.clickCityOption(city);
+    }
+
+    @Given("I am on the Homepage")
+    public void iAmOnTheHomepage() {
+        open(BASE_URL);
+        homepage = new Homepage();
+        homepage.accCookies();
     }
 }
