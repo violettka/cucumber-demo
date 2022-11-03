@@ -17,7 +17,7 @@ public class DiscoverySteps extends StepsBase {
 
 
     @Given("I open a Discovery page in {}")
-    public void iOpenAHomepage(String city) {
+    public void iOpenADiscoveryPage(String city) {
         open(BASE_URL + city.toLowerCase());
         discoveryPage.accCookies();
     }
@@ -39,7 +39,7 @@ public class DiscoverySteps extends StepsBase {
     }
 
     @Then("I see {} Discovery page")
-    public void iSeeCityDiscoveryPage(String city){
+    public void iSeeCityDiscoveryPage(String city) {
         discoveryPage.checkCityText(city);
     }
 }

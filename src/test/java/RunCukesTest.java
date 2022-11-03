@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"json:target/cucumber-report.json", "pretty"},
         glue = "wolt.steps",
-        tags = "@city"
+        tags = "@menu_navigation"
+
 )
 
 public class RunCukesTest {
