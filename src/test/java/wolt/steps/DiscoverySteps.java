@@ -39,7 +39,27 @@ public class DiscoverySteps extends StepsBase {
     }
 
     @Then("I see {} Discovery page")
-    public void iSeeCityDiscoveryPage(String city){
+    public void iSeeCityDiscoveryPage(String city) {
         discoveryPage.checkCityText(city);
+    }
+
+    @When("I click on Sign up button")
+    public void iClickOnSignUpButton() {
+        discoveryPage.clickOnSignUpBtn();
+    }
+
+    @When("I input {} incorrect email")
+    public void iInputIncorrectEmail(String incorrectEmail) {
+        discoveryPage.inputIncorrectEmail(incorrectEmail);
+    }
+
+    @When("I click on Next button")
+    public void iClickOnNextButton() {
+        discoveryPage.clickOnNextBtn();
+    }
+
+    @Then("I see error message")
+    public void iSeeErrorMessage() {
+        discoveryPage.checkErrorMessageExists();
     }
 }
