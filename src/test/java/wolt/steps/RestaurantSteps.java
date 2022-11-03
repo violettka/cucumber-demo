@@ -18,12 +18,12 @@ public class RestaurantSteps extends StepsBase {
     }
 
     @When("I click {} menu category")
-    public void iClickMenuCategoryMenuCategory(String category) {
+    public void iClickMenuCategory(String category) {
         restaurantPage.clickOnMenuCategory(category);
     }
 
-    @Then("I see {} menu name")
-    public void iSeeMenuTitleMenuName(String title) {
+    @Then("I see {} menu title")
+    public void iSeeMenuTitle(String title) {
         restaurantPage.checkMenuTitle(title);
     }
 }
