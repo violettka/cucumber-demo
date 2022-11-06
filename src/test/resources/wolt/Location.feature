@@ -19,11 +19,9 @@ Feature: Country and city location selection
       | Poland  | Gdańsk    |  |
 
   @city
-    Scenario: Check city selection
-      Given I am on the Homepage
-      Then I see list of cities in Germany
+  Scenario: Check city selection
+    Given I am on the Homepage
+    Then I see list of cities in Germany
 
-      When I click Bonn city option
-      Then I see Bonn Discovery page
-
-
+    When I click Bonn city option
+    Then I see Bonn Discovery page

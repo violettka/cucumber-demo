@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import wolt.pages.DiscoveryPage;
 
 import java.util.List;
 
@@ -81,5 +82,16 @@ public class DiscoverySteps extends StepsBase {
     public void iSeeErrorMessage(DocString errorMessage) {
         String message = errorMessage.getContent();
         discoveryPage.checkErrorMessageExists(message);
+    }
+
+    @When("I click on {string} button in {string} category on Discovery page")
+    public void iClickOnButtonInCategoryOnDiscoveryPage(String arg0, String arg1) {
+        discoveryPage = new DiscoveryPage();
+        discoveryPage.clickOnNextBtn();
+    }
+
+    @When("I click on {string} card in {string} category on Discovery page")
+    public void iClickOnCardInCategoryOnDiscoveryPage(String arg0, String arg1) {
+        jobsPage = discoveryPage.clickOnWeWantYouCard();
     }
 }

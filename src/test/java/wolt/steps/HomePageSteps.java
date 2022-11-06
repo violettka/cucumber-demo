@@ -47,4 +47,16 @@ public class HomePageSteps extends StepsBase {
         homepage = new Homepage();
         homepage.accCookies();
     }
+
+    @Given("I am opening a Homepage in {}")
+    public void iOpeningAHomePage(String city) {
+        open(BASE_URL);
+        homepage = new Homepage();
+        homepage.accCookies();
+    }
+
+    @When("I am clicking on Logo on Homepage")
+    public void iAmClickingOnLogoOnHomepage() {
+        discoveryPage = homepage.clickingOnLogo();
+    }
 }
