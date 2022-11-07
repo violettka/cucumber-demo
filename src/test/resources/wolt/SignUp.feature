@@ -8,6 +8,10 @@ Feature: Sign up
     And I click on Next button
     Then I see error message
 
+    """
+    Please enter a valid email.
+    """
+
     Examples:
       | incorrect login   |
       | fjkksoifjglsfomnj |

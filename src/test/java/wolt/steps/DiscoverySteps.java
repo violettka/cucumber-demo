@@ -1,20 +1,17 @@
 package wolt.steps;
 
+import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import wolt.pages.DiscoveryPage;
-import wolt.pages.Homepage;
 
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
 import static wolt.Constants.BASE_URL;
 
-
 public class DiscoverySteps extends StepsBase {
-
 
     @Given("I open a Discovery page in {}")
     public void iOpenAHomepage(String city) {
@@ -59,7 +56,8 @@ public class DiscoverySteps extends StepsBase {
     }
 
     @Then("I see error message")
-    public void iSeeErrorMessage() {
-        discoveryPage.checkErrorMessageExists();
+    public void iSeeErrorMessage(DocString errorMessage) {
+        String message = errorMessage.getContent();
+        discoveryPage.checkErrorMessageExists(message);
     }
 }
