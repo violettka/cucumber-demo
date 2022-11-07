@@ -16,6 +16,7 @@ public class DiscoveryPage extends Page {
     protected static By categoryName = By.cssSelector(".CategoryCardBody__Header-sc-1quwqfy-2");
     protected static By quickLink = By.cssSelector(".QuickLinks-module__itemWrapper____Ne1r");
     protected static By discoveryPageLayout = By.xpath("//div[@data-test-id='MainDiscoveryContent']");
+    protected static By sendAGiftBtn = By.linkText("Send a gift");
 
     //methods
     public List<String> getRestaurantCategoriesTexts() {
@@ -27,12 +28,16 @@ public class DiscoveryPage extends Page {
         $(By.linkText(menuOption)).click();
     }
 
+    public void clickOnGiftCardShop() {
+        $(sendAGiftBtn).click();
+    }
+
     public List<String> getLinkTexts() {
         $(quickLink).shouldBe(visible);
         return $$(quickLink).texts();
     }
 
     public void discoveryPageLayoutPresent() {
-        $(discoveryPageLayout).shouldBe(exist);
+        $(discoveryPageLayout).should(exist);
     }
 }

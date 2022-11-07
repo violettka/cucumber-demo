@@ -1,3 +1,4 @@
+@regression
 Feature: Discovery Page
 
   Scenario Outline: Discovery page Restaurant Categories

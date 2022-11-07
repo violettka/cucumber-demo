@@ -1,30 +1,17 @@
 Feature: Explore Wolt Gift Card Shop
 
-    Scenario: Where on the Wolt Gift Card Shop page we need registration
-        Given I open Wolt Homepage
-        Then I choose Berlin in Germany
-        And I see a Discovery page
+    Scenario Outline: Unregistered user, create a Gift Card
+        Given I open Gift card shop in Berlin in Germany
+        And On the open page I see the title Wolt Gift Card Shop Germany
 
-        When I click on Send a gift link
+        When I click on <value> Card
+        Then I see <Wolt Guthaben> pop-up
 
-        Then I click on VenueInformation Button
-        And I close Pop-up
-
-        Then I click on Login Button
-        And I close Pop-up
-
-        Then I click on Favorite Button
-        And I close Pop-up
-
-        Then I see 10€ Wolt Guthaben Card and click on it
-        And I close Pop-up
-
-        Then I see 10€ Wolt Guthaben Card and click on it
-        Then I click on Add To Order Button
-        Then I click on Login To Order Button
-        And I close Pop-up
+        When I click on Add To Order Button
+        Then I see Login To Order Button
         And I Remove from order Gift Card
 
-        Then I click on Gifts Categories
-        And I see Gifts page
-
+        Examples:
+            | value  | Wolt Guthaben     |  |
+            | €10.00 | 10€ Wolt Guthaben |  |
+            | €20.00 | 10€ Wolt Guthaben |  |

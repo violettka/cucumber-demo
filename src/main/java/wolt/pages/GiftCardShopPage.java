@@ -1,6 +1,7 @@
 package wolt.pages;
 
 import com.codeborne.selenide.Condition;
+import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -25,12 +26,14 @@ public class GiftCardShopPage extends Page {
     protected static By nextBtn = By.xpath("//button[@data-test-id='StepMethodSelect.NextButton']");
     protected static By emailInput = By.xpath("//input[@data-test-id='MethodSelect.EmailInput']");
     protected static By giftsLink = By.xpath("(//a[@font-family='default'])[3]");
-    protected static By giftCards = By.xpath("//*[@data-test-id='menu-item.name']");
+    protected static By giftCards = By.xpath("//span[@data-test-id='menu-item-presentational.price']");
     protected static By addToOrderBtn = By.xpath("//span[@data-localization-key='product-modal.submit.add']");
     protected static By loginToOrderBtn = By.xpath("//button[@data-test-id='CartViewButton']");
     protected static By minusBtn = By.xpath("//button[@aria-label='Remove one']");
     protected static By removeFromOrderBtn = By.xpath("//span[@data-localization-key='product-modal.submit.remove']");
     protected static By activeGiftCard = By.xpath("//span[@data-test-id='CountLabel']");
+    protected static By popUp = By.xpath("//*[@data-test-id='product-modal']");
+    protected static By popUpValue = By.xpath("//div[@data-modal-content-container='true']//h1");
 
     //methods
     public void clickOnVenueInformationButton() {
@@ -54,11 +57,11 @@ public class GiftCardShopPage extends Page {
     }
 
     public void createAccountOrLoginPopUp() {
-        $(googleBtn).exists();
-        $(appleBtn).exists();
-        $(facebookBtn).exists();
-        $(emailInput).exists();
-        $(nextBtn).shouldBe(Condition.visible);
+        $(googleBtn).shouldBe(visible);
+        $(appleBtn).shouldBe(visible);
+        $(facebookBtn).shouldBe(visible);
+        $(emailInput).shouldBe(visible);
+        $(nextBtn).shouldBe(visible);
     }
 
     public GiftsPage clickOnGiftsLink() {
@@ -71,12 +74,17 @@ public class GiftCardShopPage extends Page {
         return $$(giftCards).texts();
     }
 
+    public String getGiftCardHeaderTexts() {
+        $(popUp).shouldBe(visible);
+        return $(popUpValue).getText();
+    }
+
     public void clickOnAddToOrdetBtn() {
         $(addToOrderBtn).shouldBe(Condition.exist).click();
     }
 
-    public void clickOnloginToOrderBtn() {
-        $(loginToOrderBtn).shouldBe(Condition.exist).click();
+    public void iSeeloginToOrderBtn() {
+        $(loginToOrderBtn).shouldBe(Condition.exist);
     }
 
     public void clickOnGiftCard() {

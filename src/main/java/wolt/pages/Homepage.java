@@ -7,6 +7,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static wolt.Constants.EXPLORE_CITIES_TEXT;
 
 /**
  * Class contains all Homepage locators and methods.
@@ -22,7 +23,7 @@ public class Homepage extends Page{
 
     //methods
     public void homePageTextExist() {
-        $(exploreCitiesText).shouldHave(Condition.text("Explore cities where you find Wolt"));
+        $(exploreCitiesText).shouldHave(Condition.text(EXPLORE_CITIES_TEXT));
     }
 
     public void showAllCountriesBtnClick() {
