@@ -1,5 +1,6 @@
 package wolt.steps;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,7 +10,7 @@ import org.junit.Assert;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
-import static wolt.Constants.BASE_URL;
+import static wolt.Constants.*;
 
 /**
  * Class contains all the steps that can be done from the Gift Card Shop page.
@@ -47,7 +48,7 @@ public class GiftCardShopSteps extends StepsBase {
     public void iClickOnGiftCard(String gift) {
         List<String> cards = giftCardShopPage.getGiftCardTexts();
         Assert.assertTrue(cards.contains(gift));
-        giftCardShopPage.clickOnGiftCard();
+        giftCardShopPage.clickOnGiftCard(gift);
     }
 
     @When("I click on Add To Order Button")
@@ -65,20 +66,33 @@ public class GiftCardShopSteps extends StepsBase {
         giftCardShopPage.removeFromOrderGiftCard();
     }
 
-    @Given("I open Gift card shop in {} in {}")
-    public void iOpenGiftCardShopInBerlin(String city, String country) {
-        open(BASE_URL);
-        homepage.accCookies();
-        if (!homepage.checkForLocalCountry().equals(country)) {
-            homepage.showAllCountriesBtnClick();
-            homepage.clickOnCountryName(country);
-        }
-        discoveryPage = homepage.clickOnCityName(city);
-        discoveryPage.clickOnGiftCardShop();
+    @Given("I open Gift card shop in {}")
+    public void iOpenGiftCardShopInBerlin(String city) {
+        open(BASE_URL + city.toLowerCase() + SEND_A_GIFT_PART);
+        giftCardShopPage.accCookies();
     }
 
     @Then("I see {} pop-up")
     public void iSeeGiftCardPopUp(String gift) {
         Assert.assertTrue((giftCardShopPage.getGiftCardHeaderTexts()).equals(gift));
+    }
+
+    @When("I select a Gift Card with values:")
+    public void iSelectAGiftCardWithValues(DataTable giftCard) {
+        // get dataTable values as list
+        List<List<String>>  cards = giftCard.asLists(String.class);
+        // get first value from the dataTable (Gift Card)
+        String gift = cards.get(0).get(0);
+        // get second value from dataTable (num)
+        int amount = Integer.parseInt(cards.get(1).get(1));
+        // assert Texts
+        List<String> cardTexts = giftCardShopPage.getGiftCardTexts();
+        Assert.assertTrue(cardTexts.contains(gift));
+        // click on THE card
+        giftCardShopPage.clickOnGiftCard(gift);
+        String price = gift.split("€", 2)[1];
+        Assert.assertTrue((giftCardShopPage.getGiftCardHeaderTexts()).contains(price));
+        // select amount of gift cards
+        giftCardShopPage.selectGiftCardAmount(amount);
     }
 }

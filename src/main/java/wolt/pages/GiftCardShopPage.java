@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -34,6 +35,7 @@ public class GiftCardShopPage extends Page {
     protected static By activeGiftCard = By.xpath("//span[@data-test-id='CountLabel']");
     protected static By popUp = By.xpath("//*[@data-test-id='product-modal']");
     protected static By popUpValue = By.xpath("//div[@data-modal-content-container='true']//h1");
+    protected static By oneMore = By.xpath("//button[@aria-label='Add one more']");
 
     //methods
     public void clickOnVenueInformationButton() {
@@ -87,13 +89,21 @@ public class GiftCardShopPage extends Page {
         $(loginToOrderBtn).shouldBe(Condition.exist);
     }
 
-    public void clickOnGiftCard() {
-        $(giftCards).shouldBe(Condition.exist).click();
+    public void clickOnGiftCard(String num) {
+        $$(giftCards).findBy(text(num)).click();
     }
 
     public void removeFromOrderGiftCard() {
         $(activeGiftCard).shouldBe(Condition.exist).click();
         $(minusBtn).shouldBe(Condition.exist).click();
         $(removeFromOrderBtn).doubleClick();
+    }
+
+    public void selectGiftCardAmount(int amount) {
+        if (amount > 1) {
+            for (int i = amount; i > 1; i--) {
+                $(oneMore).click();
+            }
+        }
     }
 }
