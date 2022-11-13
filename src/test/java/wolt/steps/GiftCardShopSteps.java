@@ -84,14 +84,14 @@ public class GiftCardShopSteps extends StepsBase {
         // get first value from the dataTable (Gift Card)
         String gift = cards.get(0).get(0);
         // get second value from dataTable (num)
-        int amount = Integer.parseInt(cards.get(1).get(1));
+        int amount = Integer.parseInt(cards.get(0).get(1));
         // assert Texts
         List<String> cardTexts = giftCardShopPage.getGiftCardTexts();
         Assert.assertTrue(cardTexts.contains(gift));
         // click on THE card
         giftCardShopPage.clickOnGiftCard(gift);
-        String price = gift.split("€", 2)[1];
-        Assert.assertTrue((giftCardShopPage.getGiftCardHeaderTexts()).contains(price));
+        String price = gift.split("€|\\.", 3)[1];
+        Assert.assertTrue(giftCardShopPage.getGiftCardHeaderTexts().contains(price));
         // select amount of gift cards
         giftCardShopPage.selectGiftCardAmount(amount);
     }

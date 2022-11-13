@@ -1,3 +1,4 @@
+@regression
 Feature: Country and City location selection
 
   Scenario: Choose another country an city

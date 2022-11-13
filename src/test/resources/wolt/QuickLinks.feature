@@ -1,3 +1,4 @@
+@regression
 Feature: Explore quick links
 
     Scenario Outline: Quick links Categories

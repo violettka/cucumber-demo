@@ -1,3 +1,4 @@
+@regression
 Feature: Explore Wolt Gift Card Shop
 
     Scenario Outline: Unregistered user, create a Gift Card
@@ -25,4 +26,3 @@ Feature: Explore Wolt Gift Card Shop
             | €10.00 | 2 |
         And I click on Add To Order Button
         Then I see Login To Order Button
-      #  And I Remove from order Gift Card
