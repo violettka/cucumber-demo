@@ -1,6 +1,5 @@
 package wolt.pages;
 
-import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -8,14 +7,19 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
+/**
+ * Class contains all Homepage locators and methods.
+ */
 public class Homepage extends Page {
 
+    //locators
     protected static By exploreCitiesText = By.xpath("//span[@data-localization-key='front-view.city-selection.header']");
     protected static By listOfCities = By.xpath("//*[@data-test-id ='ListOfCities']");
     protected static By allCountriesLink = By.xpath("//span[@data-localization-key='front-view.city-selection.all-countries']");
     protected static By allCountriesList = By.cssSelector(".List-module__listOfCountries___KWT6z");
     protected static By countryName = By.xpath("//h3/span[2]");
 
+    //methods
     public void homePageTextExist() {
         $(exploreCitiesText).shouldHave(text("Explore cities"));
     }

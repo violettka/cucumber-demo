@@ -1,20 +1,20 @@
 package wolt.steps;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import wolt.pages.DiscoveryPage;
-import wolt.pages.Homepage;
 
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
 import static wolt.Constants.BASE_URL;
 
-
+/**
+ * Class contains all the steps that can be done from the Discovery page.
+ */
 public class DiscoverySteps extends StepsBase {
-
 
     @Given("I open a Discovery page in {}")
     public void iOpenAHomepage(String city) {
@@ -41,5 +41,22 @@ public class DiscoverySteps extends StepsBase {
     @Then("I see {} Discovery page")
     public void iSeeCityDiscoveryPage(String city){
         discoveryPage.checkCityText(city);
+    }
+
+    @When("I see {} link")
+    public void iSeeQuickLinks(String quickLink) {
+        List<String> quickLinks = discoveryPage.getLinkTexts();
+        Assert.assertTrue(quickLinks.contains(quickLink));
+    }
+
+    @Then("I click on {} link")
+    public void iClickOnQuickLink(String quickLink) {
+        discoveryPage.clickOnMenu(quickLink);
+    }
+
+    @And("On the open page I see the title {}")
+    public void onOpenPageISeeTitle(String headerText) {
+        String text = discoveryPage.getMainHeaderText();
+        Assert.assertTrue(text.contains(headerText));
     }
 }
