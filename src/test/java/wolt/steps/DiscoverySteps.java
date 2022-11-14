@@ -43,13 +43,15 @@ public class DiscoverySteps extends StepsBase {
         discoveryPage.checkCityText(city);
     }
 
-    @When("I see {} link")
-    public void iSeeQuickLinks(String quickLink) {
+    @Given("I see {} link on Discovery Page in {}")
+    public void iSeeQuickLinks(String quickLink, String city) {
+        open(BASE_URL + city.toLowerCase());
+        discoveryPage.accCookies();
         List<String> quickLinks = discoveryPage.getLinkTexts();
         Assert.assertTrue(quickLinks.contains(quickLink));
     }
 
-    @Then("I click on {} link")
+    @When("I click on {} link")
     public void iClickOnQuickLink(String quickLink) {
         discoveryPage.clickOnMenu(quickLink);
     }
