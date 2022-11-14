@@ -10,9 +10,9 @@ Feature: Explore quick links
         Examples:
             | quick link                         | header text                        |  |
             | Send a gift                        | Wolt Gift Card Shop Germany        |  |
-            | Legal notice                       | Impressum                          |  |
-            | User Terms of Service and Purchase | User Terms of Service and Purchase |  |
-            | Privacy Policy                     | WOLT PRIVACY STATEMENT             |  |
+#            | Legal notice                       | Impressum                          |  |
+#            | User Terms of Service and Purchase | User Terms of Service and Purchase |  |
+#            | Privacy Policy                     | WOLT PRIVACY STATEMENT             |  |
 
  #   Scenario Outline: Quick links of Privacy Policy
  #       Given I open a Discovery page in Berlin
