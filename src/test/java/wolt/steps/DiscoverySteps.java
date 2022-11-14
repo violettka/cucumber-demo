@@ -39,7 +39,7 @@ public class DiscoverySteps extends StepsBase {
     }
 
     @Then("I see {} Discovery page")
-    public void iSeeCityDiscoveryPage(String city){
+    public void iSeeCityDiscoveryPage(String city) {
         discoveryPage.checkCityText(city);
     }
 
