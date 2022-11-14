@@ -45,9 +45,9 @@ public class DiscoverySteps extends StepsBase {
         discoveryPage.clickOnSignUpBtn();
     }
 
-    @When("I input {} incorrect email")
-    public void iInputIncorrectEmail(String incorrectEmail) {
-        discoveryPage.inputIncorrectEmail(incorrectEmail);
+    @When("I input {} email")
+    public void iInputEmail(String email) {
+        discoveryPage.inputEmail(email);
     }
 
     @When("I click on Next button")

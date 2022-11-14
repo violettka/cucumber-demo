@@ -36,8 +36,8 @@ public abstract class Page {
         $(signUpButton).click();
     }
 
-    public void inputIncorrectEmail(String incorrectEmail) {
-        $(emailField).setValue(incorrectEmail);
+    public void inputEmail(String email) {
+        $(emailField).setValue(email);
     }
 
     public void clickOnNextBtn() {
