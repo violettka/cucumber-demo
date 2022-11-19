@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 /**
@@ -27,11 +26,6 @@ public class DiscoveryPage extends Page {
     public List<String> getRestaurantCategoriesTexts() {
         $(categoryName).shouldBe(visible);
         return $$(categoryName).texts();
-    }
-
-    public Homepage clickOnLogo() {
-        $(logo).click();
-        return page(Homepage.class);
     }
 
     public void checkCityText(String city) {
