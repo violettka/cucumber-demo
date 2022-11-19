@@ -1,11 +1,12 @@
 package wolt.steps;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import io.cucumber.java.en.And;
 
+import org.junit.Assert;
+import io.cucumber.docstring.DocString;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -16,6 +17,32 @@ import static wolt.Constants.BASE_URL;
  */
 public class DiscoverySteps extends StepsBase {
 
+    @Then("I see {} Discovery page")
+    public void iSeeCityDiscoveryPage(String city) {
+        discoveryPage.checkCityText(city);
+    }
+
+    @When("I click on Sign up button")
+    public void iClickOnSignUpButton() {
+        discoveryPage.clickOnSignUpBtn();
+    }
+
+    @When("I input {} email")
+    public void iInputEmail(String email) {
+        discoveryPage.inputEmail(email);
+    }
+
+    @When("I click on Next button")
+    public void iClickOnNextButton() {
+        discoveryPage.clickOnNextBtn();
+    }
+
+    @Then("I see error message")
+    public void iSeeErrorMessage(DocString errorMessage) {
+        String message = errorMessage.getContent();
+        discoveryPage.checkErrorMessageExists(message);
+    }
+    
     @Given("I open a Discovery page in {}")
     public void iOpenADiscoveryPage(String city) {
         open(BASE_URL + city.toLowerCase());
@@ -58,5 +85,5 @@ public class DiscoverySteps extends StepsBase {
     @And("I see a Discovery page")
     public void iSeeADiscoveryPage() {
         discoveryPage.discoveryPageLayoutPresent();
-    }
+        }
 }

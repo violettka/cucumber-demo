@@ -3,8 +3,7 @@ package wolt.pages;
 import org.openqa.selenium.By;
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 /**
@@ -14,6 +13,7 @@ public class DiscoveryPage extends Page {
 
     //locators
     protected static By categoryName = By.cssSelector(".CategoryCardBody__Header-sc-1quwqfy-2");
+    protected static By cityTextExist = By.cssSelector("#mainContent>nav>div>div.SubNavigationContainer__Start-sc-1fcwc14-1.hDmuOM>button>span>span");
     protected static By quickLink = By.cssSelector(".QuickLinks-module__itemWrapper____Ne1r");
     protected static By discoveryPageLayout = By.xpath("//div[@data-test-id='MainDiscoveryContent']");
     protected static By sendAGiftBtn = By.linkText("Send a gift");
@@ -22,7 +22,7 @@ public class DiscoveryPage extends Page {
     public List<String> getRestaurantCategoriesTexts() {
         $(categoryName).shouldBe(visible);
         return $$(categoryName).texts();
-    }
+    }   
 
     public void clickOnMenu(String menuOption) {
         $(By.linkText(menuOption)).click();
@@ -39,5 +39,15 @@ public class DiscoveryPage extends Page {
 
     public void discoveryPageLayoutPresent() {
         $(discoveryPageLayout).should(exist);
+    }
+
+    public List<String> getRestaurantCategoriesTexts() {
+        $(categoryName).shouldBe(visible);
+        return $$(categoryName).texts();
+    }
+
+    public void checkCityText(String city) {
+        $(cityTextExist).shouldBe(visible);
+        $(cityTextExist).shouldHave(Condition.text(city));
     }
 }
