@@ -101,4 +101,14 @@ public class DiscoverySteps extends StepsBase {
     public void iAmClickingOnLogoOnHomepage() {
         homepage = discoveryPage.clickOnLogo();
     }
+
+    @When("I am clicking on {} button in {} category on Discovery page")
+    public void iClickOnNextButtonInCategoriesCategoryOnDiscoveryPage(String button, String category) {
+        discoveryPage.clickOnNextBtnInCategory(button, category);
+    }
+
+    @Then("I should see {} card in {} category on Discovery page")
+    public void iShouldSeeCardInCategoryOnDiscoveryPage(String button, String card) {
+        discoveryPage.iSeeLastCard(button, card);
+    }
 }

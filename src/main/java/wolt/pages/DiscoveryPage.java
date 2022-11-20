@@ -24,6 +24,13 @@ public class DiscoveryPage extends Page {
     protected static By nextBtn = By.xpath("//main[@id='mainContent']/div/div/div/div[8]/div/div/div/div/button[2]");
     protected static By weWantYouCard = By.xpath("//span[contains(.,'We want you!')]");
     protected static By joinOurTeam = By.xpath("//h2[contains(.,'Join our team!')]");
+    protected static By frequentlyAskedQuestions = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[9]/div/div[1]/h2");
+    protected static By getInspired = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[11]/div/div[1]/h2");
+    protected static By nextBtnFrequentlyAskedQuestions = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[9]/div/div[1]/div/div/button[2]");
+    protected static By nextBtnGetInspired = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[11]/div/div[1]/div/div/button[2]");
+    protected static By orderTogetherCard = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[9]/div/div[2]/div/div[4]/a/div/div/div[2]/div");
+    protected static By facebookCard = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[11]/div/div[2]/div/div[4]/a/div/div/div[2]/div");
+
 
     //methods
     public void clickOnMenu(String menuOption) {
@@ -49,5 +56,32 @@ public class DiscoveryPage extends Page {
     public JobsPage clickOnWeWantYouCard() {
         $(weWantYouCard).click();
         return page(JobsPage.class);
+    }
+
+    public void clickOnNextBtnInCategory(String button, String category) {
+        if (category.equals("Frequently asked questions")) {
+            $(frequentlyAskedQuestions).shouldBe(visible);
+            $(nextBtnFrequentlyAskedQuestions).click();
+        }
+        if (category.equals("Join our team!")) {
+            $(joinOurTeam).shouldBe(visible);
+            $(nextBtn).click();
+        }
+        if (category.equals("Get inspired!")) {
+            $(getInspired).shouldBe(visible);
+            $(nextBtnGetInspired).click();
+        }
+    }
+
+    public void iSeeLastCard(String button, String card) {
+        if (button.equals(nextBtnFrequentlyAskedQuestions)) {
+            $(orderTogetherCard).shouldBe(visible);
+        }
+        if (button.equals(nextBtn)) {
+            $(weWantYouCard).shouldBe(visible);
+        }
+        if (button.equals(nextBtnGetInspired)) {
+            $(facebookCard).shouldBe(visible);
+        }
     }
 }
