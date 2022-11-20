@@ -86,12 +86,19 @@ public class DiscoverySteps extends StepsBase {
 
     @When("I click on {string} button in {string} category on Discovery page")
     public void iClickOnButtonInCategoryOnDiscoveryPage(String arg0, String arg1) {
+    @When("I click on Next button in Join our team! category on Discovery page")
+    public void iClickOnButtonInCategoryOnDiscoveryPage() {
         discoveryPage = new DiscoveryPage();
         discoveryPage.clickOnNextBtn();
     }
 
-    @When("I click on {string} card in {string} category on Discovery page")
-    public void iClickOnCardInCategoryOnDiscoveryPage(String arg0, String arg1) {
+    @When("I click on We want you card in Join our team! category on Discovery page")
+    public void iClickOnCardInCategoryOnDiscoveryPage() {
         jobsPage = discoveryPage.clickOnWeWantYouCard();
+    }
+
+    @When("I am clicking on Logo on Homepage")
+    public void iAmClickingOnLogoOnHomepage() {
+        homepage = discoveryPage.clickOnLogo();
     }
 }

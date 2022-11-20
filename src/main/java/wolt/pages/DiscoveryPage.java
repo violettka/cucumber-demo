@@ -44,7 +44,7 @@ public class DiscoveryPage extends Page {
         $(quickLink).shouldBe(visible);
         return $$(quickLink);
     }
-}
+
 
     public JobsPage clickOnWeWantYouCard() {
         $(weWantYouCard).click();

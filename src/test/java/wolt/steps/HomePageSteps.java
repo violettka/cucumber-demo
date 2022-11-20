@@ -8,6 +8,9 @@ import wolt.pages.Homepage;
 import static com.codeborne.selenide.Selenide.open;
 import static wolt.Constants.BASE_URL;
 
+/**
+ * Class HomePgeSteps contains all base steps.
+ */
 public class HomePageSteps extends StepsBase {
     Homepage homepage;
 
@@ -48,15 +51,10 @@ public class HomePageSteps extends StepsBase {
         homepage.accCookies();
     }
 
-    @Given("I am opening a Homepage in {}")
-    public void iOpeningAHomePage(String city) {
+    @Given("I am opening a Homepage")
+    public void iAmOpeningAHomepageInBerlin() {
         open(BASE_URL);
         homepage = new Homepage();
         homepage.accCookies();
-    }
-
-    @When("I am clicking on Logo on Homepage")
-    public void iAmClickingOnLogoOnHomepage() {
-        discoveryPage = homepage.clickingOnLogo();
     }
 }
