@@ -21,7 +21,7 @@ public class DiscoveryPage extends Page {
     protected static By categoryName = By.cssSelector(".CategoryCardBody__Header-sc-1quwqfy-2");
     protected static By quickLink = By.cssSelector(".QuickLinks-module__itemWrapper____Ne1r");
     protected static By cityTextExist = By.cssSelector("#mainContent>nav>div>div.SubNavigationContainer__Start-sc-1fcwc14-1.hDmuOM>button>span>span");
-    protected static By nextBtn = By.xpath("//main[@id='mainContent']/div/div/div/div[8]/div/div/div/div/button[2]");
+    protected static By nextBtnJoinOurTeam = By.xpath("//main[@id='mainContent']/div/div/div/div[8]/div/div/div/div/button[2]");
     protected static By weWantYouCard = By.xpath("//span[contains(.,'We want you!')]");
     protected static By joinOurTeam = By.xpath("//h2[contains(.,'Join our team!')]");
     protected static By frequentlyAskedQuestions = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[9]/div/div[1]/h2");
@@ -58,14 +58,14 @@ public class DiscoveryPage extends Page {
         return page(JobsPage.class);
     }
 
-    public void clickOnNextBtnInCategory(String button, String category) {
+    public void clickOnNextBtnInCategory(String category) {
         if (category.equals("Frequently asked questions")) {
             $(frequentlyAskedQuestions).shouldBe(visible);
             $(nextBtnFrequentlyAskedQuestions).click();
         }
         if (category.equals("Join our team!")) {
             $(joinOurTeam).shouldBe(visible);
-            $(nextBtn).click();
+            $(nextBtnJoinOurTeam).click();
         }
         if (category.equals("Get inspired!")) {
             $(getInspired).shouldBe(visible);
@@ -73,11 +73,11 @@ public class DiscoveryPage extends Page {
         }
     }
 
-    public void iSeeLastCard(String button, String card) {
+    public void iSeeLastCard(String button) {
         if (button.equals(nextBtnFrequentlyAskedQuestions)) {
             $(orderTogetherCard).shouldBe(visible);
         }
-        if (button.equals(nextBtn)) {
+        if (button.equals(nextBtnJoinOurTeam)) {
             $(weWantYouCard).shouldBe(visible);
         }
         if (button.equals(nextBtnGetInspired)) {

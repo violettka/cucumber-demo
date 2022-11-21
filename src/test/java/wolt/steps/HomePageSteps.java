@@ -51,10 +51,5 @@ public class HomePageSteps extends StepsBase {
         homepage.accCookies();
     }
 
-    @Given("I am opening a Homepage")
-    public void iAmOpeningAHomepageInBerlin() {
-        open(BASE_URL);
-        homepage = new Homepage();
-        homepage.accCookies();
-    }
+
 }

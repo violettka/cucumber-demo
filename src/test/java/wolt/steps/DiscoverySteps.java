@@ -36,10 +36,7 @@ public class DiscoverySteps extends StepsBase {
         Assert.assertTrue(categories.contains(category));
     }
 
-    @When("I click logo icon")
-    public void iClickLogoIcon() {
-        homepage = discoveryPage.clickOnLogo();
-    }
+
 
     @Then("I see {} Discovery page")
     public void iSeeCityDiscoveryPage(String city) {
@@ -84,31 +81,22 @@ public class DiscoverySteps extends StepsBase {
         discoveryPage.checkErrorMessageExists(message);
     }
 
-    @When("I click on {string} button in {string} category on Discovery page")
-    public void iClickOnButtonInCategoryOnDiscoveryPage(String arg0, String arg1) {
-    @When("I click on Next button in Join our team! category on Discovery page")
-    public void iClickOnButtonInCategoryOnDiscoveryPage() {
-        discoveryPage = new DiscoveryPage();
-        discoveryPage.clickOnNextBtn();
-    }
-
-    @When("I click on We want you card in Join our team! category on Discovery page")
+    @When("I click on We want you card in Join our team! category")
     public void iClickOnCardInCategoryOnDiscoveryPage() {
         jobsPage = discoveryPage.clickOnWeWantYouCard();
     }
 
-    @When("I am clicking on Logo on Homepage")
-    public void iAmClickingOnLogoOnHomepage() {
+    @When("I click on Next button in {} category")
+    public void iClickOnNextButtonInCategoriesCategoryOnDiscoveryPage(String category) {
+        discoveryPage.clickOnNextBtnInCategory(category);
+    }
+
+    @Then("I should see {} card in {} category")
+    public void iShouldSeeCardInCategoryOnDiscoveryPage(String button) {
+        discoveryPage.iSeeLastCard(button);
+    }
+    @When("I click logo icon")
+    public void iClickLogoIcon() {
         homepage = discoveryPage.clickOnLogo();
-    }
-
-    @When("I am clicking on {} button in {} category on Discovery page")
-    public void iClickOnNextButtonInCategoriesCategoryOnDiscoveryPage(String button, String category) {
-        discoveryPage.clickOnNextBtnInCategory(button, category);
-    }
-
-    @Then("I should see {} card in {} category on Discovery page")
-    public void iShouldSeeCardInCategoryOnDiscoveryPage(String button, String card) {
-        discoveryPage.iSeeLastCard(button, card);
     }
 }
