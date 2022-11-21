@@ -91,9 +91,9 @@ public class DiscoverySteps extends StepsBase {
         discoveryPage.clickOnNextBtnInCategory(category);
     }
 
-    @Then("I should see {} card in {} category")
-    public void iShouldSeeCardInCategoryOnDiscoveryPage(String button) {
-        discoveryPage.iSeeLastCard(button);
+    @Then("I should see {} card")
+    public void iShouldSeeCardInCategoryOnDiscoveryPage(String card) {
+        discoveryPage.iSeeLastCard(card);
     }
     @When("I click logo icon")
     public void iClickLogoIcon() {
