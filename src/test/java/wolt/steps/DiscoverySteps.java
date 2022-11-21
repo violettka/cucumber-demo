@@ -1,5 +1,7 @@
 package wolt.steps;
 
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
 import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,6 +13,9 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static wolt.Constants.BASE_URL;
 
+/**
+ * Class contains all the steps that can be done from the Discovery page.
+ */
 public class DiscoverySteps extends StepsBase {
 
     @Given("I open a Discovery page in {}")
@@ -38,6 +43,23 @@ public class DiscoverySteps extends StepsBase {
     @Then("I see {} Discovery page")
     public void iSeeCityDiscoveryPage(String city) {
         discoveryPage.checkCityText(city);
+    }
+
+    @Given("I see {} link on Discovery Page in {}")
+    public void iSeeQuickLinks(String quickLink, String city) {
+        open(BASE_URL + city.toLowerCase());
+        discoveryPage.accCookies();
+        discoveryPage.getLinkElts().shouldHave(CollectionCondition.itemWithText(quickLink));
+    }
+
+    @When("I click on {} link")
+    public void iClickOnQuickLink(String quickLink) {
+        discoveryPage.clickOnMenu(quickLink);
+    }
+
+    @Then("I see the title {}")
+    public void iSeeTitle(String headerText) {
+        discoveryPage.getMainHeaderElt().shouldHave(Condition.text(headerText));
     }
 
     @When("I click on Sign up button")

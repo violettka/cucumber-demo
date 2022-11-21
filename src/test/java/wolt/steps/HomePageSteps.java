@@ -10,6 +10,7 @@ import static wolt.Constants.BASE_URL;
 
 public class HomePageSteps extends StepsBase {
     Homepage homepage;
+
     @Then("I should see Homepage")
     public void iShouldSeeHomepage() {
         homepage.homePageTextExist();
