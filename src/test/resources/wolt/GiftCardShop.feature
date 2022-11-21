@@ -2,7 +2,7 @@
 Feature: Explore Wolt Gift Card Shop
 
     Scenario Outline: Unregistered user, create a Gift Card
-        Given I open Gift card shop in Berlin in Germany
+        Given I open Gift card shop in Berlin
         And On the open page I see the title Wolt Gift Card Shop Germany
 
         When I click on <value> Card

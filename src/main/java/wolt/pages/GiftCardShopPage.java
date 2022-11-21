@@ -16,26 +16,19 @@ import static com.codeborne.selenide.Selenide.*;
 public class GiftCardShopPage extends Page {
 
     //locators
-    protected static By venueInformationButton = By.xpath("//button[@data-test-id='venue-information-button']");
-    protected static By cityMap = By.xpath("//div[@class='leaflet-pane leaflet-map-pane']");
-    protected static By loginBtn = By.xpath("//button[@data-test-id='UserStatus.Login']");
-    protected static By closeBtn = By.xpath("//button[@data-test-id='modal-close-button']");
-    protected static By favoriteBtn = By.xpath("//button[@aria-label='Favorite']");
-    protected static By googleBtn = By.xpath("//button[@data-test-id='MethodSelect.Google']");
-    protected static By appleBtn = By.xpath("//button[@data-test-id='MethodSelect.Apple']");
-    protected static By facebookBtn = By.xpath("//button[@data-test-id='MethodSelect.Facebook']");
-    protected static By nextBtn = By.xpath("//button[@data-test-id='StepMethodSelect.NextButton']");
-    protected static By emailInput = By.xpath("//input[@data-test-id='MethodSelect.EmailInput']");
-    protected static By giftsLink = By.xpath("(//a[@font-family='default'])[3]");
-    protected static By giftCards = By.xpath("//span[@data-test-id='menu-item-presentational.price']");
+    protected static By activeGiftCard = By.xpath("//span[@data-test-id='CountLabel']");
     protected static By addToOrderBtn = By.xpath("//span[@data-localization-key='product-modal.submit.add']");
+    protected static By cityMap = By.xpath("//div[@class='leaflet-pane leaflet-map-pane']");
+    protected static By favoriteBtn = By.xpath("//button[@aria-label='Favorite']");
+    protected static By giftCards = By.xpath("//span[@data-test-id='menu-item-presentational.price']");
+    protected static By giftsLink = By.xpath("(//a[@font-family='default'])[3]");
     protected static By loginToOrderBtn = By.xpath("//button[@data-test-id='CartViewButton']");
     protected static By minusBtn = By.xpath("//button[@aria-label='Remove one']");
-    protected static By removeFromOrderBtn = By.xpath("//span[@data-localization-key='product-modal.submit.remove']");
-    protected static By activeGiftCard = By.xpath("//span[@data-test-id='CountLabel']");
+    protected static By oneMore = By.xpath("//button[@aria-label='Add one more']");
     protected static By popUp = By.xpath("//*[@data-test-id='product-modal']");
     protected static By popUpValue = By.xpath("//div[@data-modal-content-container='true']//h1");
-    protected static By oneMore = By.xpath("//button[@aria-label='Add one more']");
+    protected static By removeFromOrderBtn = By.xpath("//span[@data-localization-key='product-modal.submit.remove']");
+    protected static By venueInformationButton = By.xpath("//button[@data-test-id='venue-information-button']");
 
     //methods
     public void clickOnVenueInformationButton() {
@@ -63,7 +56,7 @@ public class GiftCardShopPage extends Page {
         $(appleBtn).shouldBe(visible);
         $(facebookBtn).shouldBe(visible);
         $(emailInput).shouldBe(visible);
-        $(nextBtn).shouldBe(visible);
+        $(nextButton).shouldBe(visible);
     }
 
     public GiftsPage clickOnGiftsLink() {

@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 
 import org.junit.Assert;
 import io.cucumber.docstring.DocString;
+
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -42,7 +43,7 @@ public class DiscoverySteps extends StepsBase {
         String message = errorMessage.getContent();
         discoveryPage.checkErrorMessageExists(message);
     }
-    
+
     @Given("I open a Discovery page in {}")
     public void iOpenADiscoveryPage(String city) {
         open(BASE_URL + city.toLowerCase());
@@ -85,5 +86,5 @@ public class DiscoverySteps extends StepsBase {
     @And("I see a Discovery page")
     public void iSeeADiscoveryPage() {
         discoveryPage.discoveryPageLayoutPresent();
-        }
+    }
 }

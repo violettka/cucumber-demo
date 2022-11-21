@@ -1,6 +1,8 @@
 package wolt.pages;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
+
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
@@ -22,7 +24,7 @@ public class DiscoveryPage extends Page {
     public List<String> getRestaurantCategoriesTexts() {
         $(categoryName).shouldBe(visible);
         return $$(categoryName).texts();
-    }   
+    }
 
     public void clickOnMenu(String menuOption) {
         $(By.linkText(menuOption)).click();
@@ -39,11 +41,6 @@ public class DiscoveryPage extends Page {
 
     public void discoveryPageLayoutPresent() {
         $(discoveryPageLayout).should(exist);
-    }
-
-    public List<String> getRestaurantCategoriesTexts() {
-        $(categoryName).shouldBe(visible);
-        return $$(categoryName).texts();
     }
 
     public void checkCityText(String city) {
