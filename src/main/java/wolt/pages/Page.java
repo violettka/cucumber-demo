@@ -31,8 +31,8 @@ public abstract class Page {
         return page(Homepage.class);
     }
 
-    public String getMainHeaderText() {
+    public SelenideElement getMainHeaderElt() {
         $(mainHeader).shouldBe(visible);
-        return $(mainHeader).getText();
+        return $(mainHeader);
     }
 }

@@ -1,8 +1,11 @@
 package wolt.pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.util.Collection;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -39,8 +42,8 @@ public class DiscoveryPage extends Page {
         $(cityTextExist).shouldHave(Condition.text(city));
     }
 
-    public List<String> getLinkTexts() {
+    public ElementsCollection getLinkElts() {
         $(quickLink).shouldBe(visible);
-        return $$(quickLink).texts();
+        return $$(quickLink);
     }
 }

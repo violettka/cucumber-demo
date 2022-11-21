@@ -1,5 +1,7 @@
 package wolt.steps;
 
+import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Condition;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -47,8 +49,7 @@ public class DiscoverySteps extends StepsBase {
     public void iSeeQuickLinks(String quickLink, String city) {
         open(BASE_URL + city.toLowerCase());
         discoveryPage.accCookies();
-        List<String> quickLinks = discoveryPage.getLinkTexts();
-        Assert.assertTrue(quickLinks.contains(quickLink));
+        discoveryPage.getLinkElts().shouldHave(CollectionCondition.itemWithText(quickLink));
     }
 
     @When("I click on {} link")
@@ -56,9 +57,8 @@ public class DiscoverySteps extends StepsBase {
         discoveryPage.clickOnMenu(quickLink);
     }
 
-    @And("On the open page I see the title {}")
-    public void onOpenPageISeeTitle(String headerText) {
-        String text = discoveryPage.getMainHeaderText();
-        Assert.assertTrue(text.contains(headerText));
+    @Then("I see the title {}")
+    public void iSeeTitle(String headerText) {
+        discoveryPage.getMainHeaderElt().shouldHave(Condition.text(headerText));
     }
 }
