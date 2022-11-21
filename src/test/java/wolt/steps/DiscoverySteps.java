@@ -2,7 +2,7 @@ package wolt.steps;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
-import io.cucumber.java.en.And;
+import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -60,5 +60,26 @@ public class DiscoverySteps extends StepsBase {
     @Then("I see the title {}")
     public void iSeeTitle(String headerText) {
         discoveryPage.getMainHeaderElt().shouldHave(Condition.text(headerText));
+    }
+
+    @When("I click on Sign up button")
+    public void iClickOnSignUpButton() {
+        discoveryPage.clickOnSignUpBtn();
+    }
+
+    @When("I input {} email")
+    public void iInputEmail(String email) {
+        discoveryPage.inputEmail(email);
+    }
+
+    @When("I click on Next button")
+    public void iClickOnNextButton() {
+        discoveryPage.clickOnNextBtn();
+    }
+
+    @Then("I see error message")
+    public void iSeeErrorMessage(DocString errorMessage) {
+        String message = errorMessage.getContent();
+        discoveryPage.checkErrorMessageExists(message);
     }
 }
