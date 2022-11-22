@@ -1,11 +1,12 @@
 package wolt.pages;
 
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
+import static wolt.pages.DiscoveryPage.cityTextExist;
 
 /**
  * Class contains all Homepage locators and methods.
@@ -44,5 +45,15 @@ public class Homepage extends Page {
     public DiscoveryPage clickCityOption(String city) {
         $(By.xpath("//span[text()='" + city + "']/..")).click();
         return page(DiscoveryPage.class);
+    }
+
+    public DiscoveryPage clickingOnLogo() {
+        $(logo).shouldBe(visible).click();
+        return page(DiscoveryPage.class);
+    }
+
+    public void checkingCityText(String city) {
+        $(cityTextExist).shouldBe(visible);
+        $(cityTextExist).shouldHave(Condition.text(city));
     }
 }

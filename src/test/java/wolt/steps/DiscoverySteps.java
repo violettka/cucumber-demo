@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import wolt.pages.DiscoveryPage;
 
 import java.util.List;
 
@@ -35,10 +36,7 @@ public class DiscoverySteps extends StepsBase {
         Assert.assertTrue(categories.contains(category));
     }
 
-    @When("I click logo icon")
-    public void iClickLogoIcon() {
-        homepage = discoveryPage.clickOnLogo();
-    }
+
 
     @Then("I see {} Discovery page")
     public void iSeeCityDiscoveryPage(String city) {
@@ -81,5 +79,24 @@ public class DiscoverySteps extends StepsBase {
     public void iSeeErrorMessage(DocString errorMessage) {
         String message = errorMessage.getContent();
         discoveryPage.checkErrorMessageExists(message);
+    }
+
+    @When("I click on We want you card in Join our team! category")
+    public void iClickOnCardInCategoryOnDiscoveryPage() {
+        jobsPage = discoveryPage.clickOnWeWantYouCard();
+    }
+
+    @When("I click on Next button in {} category")
+    public void iClickOnNextButtonInCategoriesCategoryOnDiscoveryPage(String category) {
+        discoveryPage.clickOnNextBtnInCategory(category);
+    }
+
+    @Then("I should see {} card")
+    public void iShouldSeeCardInCategoryOnDiscoveryPage(String card) {
+        discoveryPage.iSeeLastCard(card);
+    }
+    @When("I click logo icon")
+    public void iClickLogoIcon() {
+        homepage = discoveryPage.clickOnLogo();
     }
 }
