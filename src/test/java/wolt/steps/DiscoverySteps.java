@@ -77,7 +77,7 @@ public class DiscoverySteps extends StepsBase {
         discoveryPage.clickOnMenu(quickLink);
     }
 
-    @And("On the open page I see the title {}")
+    @Then("I see the title {}")
     public void onOpenPageISeeTitle(String headerText) {
         String text = discoveryPage.getMainHeaderText();
         Assert.assertTrue(text.contains(headerText));

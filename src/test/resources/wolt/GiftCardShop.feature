@@ -3,7 +3,7 @@ Feature: Explore Wolt Gift Card Shop
 
     Scenario Outline: Unregistered user, create a Gift Card
         Given I open Gift card shop in Berlin
-        And On the open page I see the title Wolt Gift Card Shop Germany
+        Then I see the title Wolt Gift Card Shop Germany
 
         When I click on <value> Card
         Then I see <Wolt Guthaben> pop-up
@@ -20,7 +20,7 @@ Feature: Explore Wolt Gift Card Shop
     @DataTableTest
     Scenario: Unregistered user, create few Gift Cards
         Given I open Gift card shop in Berlin
-        And On the open page I see the title Wolt Gift Card Shop Germany
+        Then I see the title Wolt Gift Card Shop Germany
 
         When I select a Gift Card with values:
             | €10.00 | 2 |
