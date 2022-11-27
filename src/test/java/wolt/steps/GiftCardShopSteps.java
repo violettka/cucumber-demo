@@ -80,7 +80,7 @@ public class GiftCardShopSteps extends StepsBase {
     @When("I select a Gift Card with values:")
     public void iSelectAGiftCardWithValues(DataTable giftCard) {
         // get dataTable values as list
-        List<List<String>>  cards = giftCard.asLists(String.class);
+        List<List<String>> cards = giftCard.asLists(String.class);
         // get first value from the dataTable (Gift Card)
         String gift = cards.get(0).get(0);
         // get second value from dataTable (num)

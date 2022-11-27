@@ -55,7 +55,8 @@ public class Homepage extends Page {
         $(By.xpath("//span[text()='" + city + "']/..")).click();
         return page(DiscoveryPage.class);
     }
-        public void showAllCountriesBtnClick() {
+
+    public void showAllCountriesBtnClick() {
         $(showAllCountriesBtn).click();
     }
 
@@ -69,8 +70,8 @@ public class Homepage extends Page {
     }
 
     public List<String> getCountryNames() {
-        $(countryNames).shouldBe(visible);
-        return $$(countryNames).texts();
+        $(countryName).shouldBe(visible);
+        return $$(countryName).texts();
     }
 
     public DiscoveryPage clickOnCityName(String cityOption) {

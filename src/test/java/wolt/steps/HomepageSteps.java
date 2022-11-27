@@ -11,7 +11,7 @@ import static wolt.Constants.BASE_URL;
 /**
  * Class HomePgeSteps contains all base steps.
  */
-public class HomePageSteps extends StepsBase {
+public class HomepageSteps extends StepsBase {
 
     @Then("I should see Homepage")
     public void iShouldSeeHomepage() {
