@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 /**
  * Class contains all Privacy page locators and methods.
  */
-public class PrivacyPage extends Page{
+public class PrivacyPage extends Page {
 
     //locators
     protected static By headerLinks = By.cssSelector(".Header-module__headerLinks___WSM53");

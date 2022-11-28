@@ -1,5 +1,5 @@
 package wolt.pages;
 
-public class ImpressumInfoPage extends Page{
+public class ImpressumInfoPage extends Page {
 
 }

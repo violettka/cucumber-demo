@@ -1,5 +1,5 @@
 package wolt.pages;
 
-public class TermsPage extends Page{
+public class TermsPage extends Page {
 
 }

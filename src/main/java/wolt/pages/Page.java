@@ -35,18 +35,18 @@ public abstract class Page {
         }
     }
 
+    public SelenideElement buildXpathTextLocator(String text) {
+        return $(By.xpath("//span[text()='" + text + "']"));
+    }
+
     public Homepage clickOnLogo() {
         $(logo).shouldBe(visible).click();
         return page(Homepage.class);
     }
 
-    public String getMainHeaderText() {
+    public SelenideElement getMainHeaderElt() {
         $(mainHeader).shouldBe(visible);
-        return $(mainHeader).getText();
-    }
-
-    public SelenideElement buildXpathTextLocator(String text) {
-        return $(By.xpath("//span[text()='" + text + "']"));
+        return $(mainHeader);
     }
 
     public void clickOnSignUpBtn() {
