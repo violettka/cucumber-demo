@@ -27,7 +27,8 @@ public class DiscoveryPage extends Page {
     protected static By nextBtnGetInspired = By.xpath("//*[@id=\"mainContent\"]/div[3]/div/div/div[8]/div/div[1]/div/div/button[2]");
     protected static By orderTogetherCard = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[9]/div/div[2]/div/div[4]/a/div/div/div[2]/div");
     protected static By facebookCard = By.xpath("//*[@id=\"mainContent\"]/div[3]/div/div/div[8]/div/div[2]/div/div[4]/a/div/div/div[2]/div");
-
+    protected static By discoveryPageLayout = By.xpath("//div[@data-test-id='MainDiscoveryContent']");
+    protected static By sendAGiftBtn = By.linkText("Send a gift");
 
     //methods
     public void clickOnMenu(String menuOption) {
@@ -48,7 +49,6 @@ public class DiscoveryPage extends Page {
         $(quickLink).shouldBe(visible);
         return $$(quickLink);
     }
-
 
     public JobsPage clickOnWeWantYouCard() {
         $(weWantYouCard).shouldBe(visible).click();
@@ -77,5 +77,13 @@ public class DiscoveryPage extends Page {
         if (card.equals("Facebook")) {
             $(facebookCard).shouldBe(visible);
         }
+    }
+
+    public void clickOnGiftCardShop() {
+        $(sendAGiftBtn).click();
+    }
+
+    public void discoveryPageLayoutPresent() {
+        $(discoveryPageLayout).should(exist);
     }
 }

@@ -6,8 +6,11 @@ import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.And;
+
 import org.junit.Assert;
 import wolt.pages.DiscoveryPage;
+import io.cucumber.docstring.DocString;
 
 import java.util.List;
 
@@ -35,8 +38,6 @@ public class DiscoverySteps extends StepsBase {
         List<String> categories = discoveryPage.getRestaurantCategoriesTexts();
         Assert.assertTrue(categories.contains(category));
     }
-
-
 
     @Then("I see {} Discovery page")
     public void iSeeCityDiscoveryPage(String city) {
@@ -95,8 +96,19 @@ public class DiscoverySteps extends StepsBase {
     public void iShouldSeeCardInCategoryOnDiscoveryPage(String card) {
         discoveryPage.iSeeLastCard(card);
     }
+
     @When("I click logo icon")
     public void iClickLogoIcon() {
         homepage = discoveryPage.clickOnLogo();
+    }
+
+    @When("I see {} link")
+    public void iSeeQuickLinks(String quickLink) {
+        discoveryPage.getLinkElts().contains(quickLink);
+    }
+
+    @And("I see a Discovery page")
+    public void iSeeADiscoveryPage() {
+        discoveryPage.discoveryPageLayoutPresent();
     }
 }
