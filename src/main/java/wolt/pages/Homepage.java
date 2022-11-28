@@ -18,6 +18,8 @@ import java.util.List;
 public class Homepage extends Page {
 
     //locators
+    protected static By exploreCitiesText = By.xpath("//span[@data-localization-key='front-view.city-selection.header']");
+    protected static By listOfCities = By.xpath("//*[@data-test-id ='ListOfCities']");
     protected static By allCountriesLink = By.xpath("//span[@data-localization-key='front-view.city-selection.all-countries']");
     protected static By allCountriesList = By.cssSelector(".List-module__listOfCountries___KWT6z");
     protected static By cityNames = By.xpath("//span[@data-test-id='ListOfCities']");
