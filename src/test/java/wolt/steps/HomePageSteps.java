@@ -8,8 +8,11 @@ import wolt.pages.Homepage;
 import static com.codeborne.selenide.Selenide.open;
 import static wolt.Constants.BASE_URL;
 
+/**
+ * Class HomePgeSteps contains all base steps.
+ */
 public class HomePageSteps extends StepsBase {
-    Homepage homepage;
+
     @Then("I should see Homepage")
     public void iShouldSeeHomepage() {
         homepage.homePageTextExist();
