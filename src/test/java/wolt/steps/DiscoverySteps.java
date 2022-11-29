@@ -23,7 +23,7 @@ import static wolt.Constants.BASE_URL;
 public class DiscoverySteps extends StepsBase {
 
     @Given("I open a Discovery page in {}")
-    public void iOpenAHomepage(String city) {
+    public void iOpenADiscoveryPage(String city) {
         open(BASE_URL + city.toLowerCase());
         discoveryPage.accCookies();
     }
