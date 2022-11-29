@@ -25,10 +25,8 @@ public abstract class Page {
     protected static By facebookBtn = By.xpath("//button[@data-test-id='MethodSelect.Facebook']");
     protected static By googleBtn = By.xpath("//button[@data-test-id='MethodSelect.Google']");
     protected static By loginBtn = By.xpath("//button[@data-test-id='UserStatus.Login']");
-    protected static By logo = By.id("lottie");
-    protected static By mainHeader = By.xpath("(//h1)[1]");
     protected static By nextButton = By.xpath("//*[@data-test-id='StepMethodSelect.NextButton']");
-    protected static By signUpButton = By.xpath("//*[@data-test-id='UserStatus.Signup']");
+
 
     //methods
     public void accCookies() {
