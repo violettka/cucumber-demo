@@ -2,13 +2,11 @@ package wolt.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import java.util.Collection;
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -21,14 +19,17 @@ public class DiscoveryPage extends Page {
     protected static By categoryName = By.cssSelector(".CategoryCardBody__Header-sc-1quwqfy-2");
     protected static By quickLink = By.cssSelector(".QuickLinks-module__itemWrapper____Ne1r");
     protected static By cityTextExist = By.cssSelector("#mainContent>nav>div>div.SubNavigationContainer__Start-sc-1fcwc14-1.hDmuOM>button>span>span");
-    protected static By nextBtnJoinOurTeam = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[7]/div/div[1]/div/div/button[2]");
+    protected static By nextBtnJoinOurTeam = By.xpath("//h2[contains(.,'Join our team!')]/../div/div/button[2]");
     protected static By weWantYouCard = By.xpath("//span[contains(.,'We want you!')]");
-    protected static By nextBtnFrequentlyAskedQuestions = By.xpath("//*[@id=\"mainContent\"]/div[3]/div/div/div[6]/div/div[1]/div/div/button[2]");
-    protected static By nextBtnGetInspired = By.xpath("//*[@id=\"mainContent\"]/div[3]/div/div/div[8]/div/div[1]/div/div/button[2]");
+    protected static By nextBtnFrequentlyAskedQuestions = By.xpath("//h2[contains(.,'Frequently asked questions')]/../div/div/button[2]");
+    protected static By nextBtnGetInspired = By.xpath("//h2[contains(.,'Get inspired!')]/../div/div/button[2]");
     protected static By orderTogetherCard = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[9]/div/div[2]/div/div[4]/a/div/div/div[2]/div");
-    protected static By facebookCard = By.xpath("//*[@id=\"mainContent\"]/div[3]/div/div/div[8]/div/div[2]/div/div[4]/a/div/div/div[2]/div");
+    protected static By facebookCard = By.xpath("//*[@id='mainContent']/div[3]/div/div/div[8]/div/div[2]/div/div[4]/a/div/div/div[2]/div");
     protected static By discoveryPageLayout = By.xpath("//div[@data-test-id='MainDiscoveryContent']");
     protected static By sendAGiftBtn = By.linkText("Send a gift");
+    protected static By joinOurTeam = By.xpath("//h2[contains(.,'Join our team!')]");
+    protected static By frequentlyAskedQuestions = By.xpath("//h2[contains(.,'Frequently asked questions')]");
+    protected static By getInspired = By.xpath("//h2[contains(.,'Get inspired!')]");
 
     //methods
     public void clickOnMenu(String menuOption) {

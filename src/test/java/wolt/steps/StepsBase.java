@@ -11,6 +11,4 @@ public class StepsBase {
     public static JobsPage jobsPage;
     public static GiftCardShopPage giftCardShopPage = new GiftCardShopPage();
     public static GiftsPage giftsPage = new GiftsPage();
-    public static Homepage homepage;
-    public static JobsPage jobsPage;
 }

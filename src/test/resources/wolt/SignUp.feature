@@ -1,3 +1,4 @@
+@regression
 Feature: Sign up
 
     @incorrect_login

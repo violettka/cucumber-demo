@@ -1,3 +1,4 @@
+@regression
 Feature: Country and city location selection
 
     @city_country
