@@ -3,14 +3,11 @@ package wolt.steps;
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import io.cucumber.docstring.DocString;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en.And;
-
 import org.junit.Assert;
-import wolt.pages.DiscoveryPage;
-import io.cucumber.docstring.DocString;
 
 import java.util.List;
 

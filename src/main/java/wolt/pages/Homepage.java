@@ -24,8 +24,6 @@ public class Homepage extends Page {
     protected static By allCountriesList = By.cssSelector(".List-module__listOfCountries___KWT6z");
     protected static By cityNames = By.xpath("//span[@data-test-id='ListOfCities']");
     protected static By countryName = By.xpath("//h3/span[2]");
-    protected static By exploreCitiesText = By.xpath("//span[@data-localization-key='front-view.city-selection.header']");
-    protected static By listOfCities = By.xpath("//*[@data-test-id ='ListOfCities']");
     protected static By localCountry = By.xpath("(//h3/span)[3]");
     protected static By showAllCountriesBtn = By.xpath("//span[@data-localization-key='front-view.city-selection.see-all-countries']");
 
