@@ -16,10 +16,8 @@ public abstract class Page {
     //locators
     protected static By appleBtn = By.xpath("//button[@data-test-id='MethodSelect.Apple']");
     protected static By closeBtn = By.xpath("//button[@data-test-id='modal-close-button']");
-    protected static By logo = By.id("lottie");
-    protected static By mainHeader = By.xpath("(//h1)[1]");
-    protected static By signUpButton = By.xpath("//*[@data-test-id='UserStatus.Signup']");
-    protected static By emailField = By.xpath("//*[@data-test-id='MethodSelect.EmailInput']");
+
+     protected static By emailField = By.xpath("//*[@data-test-id='MethodSelect.EmailInput']");
     protected static By emailInput = By.xpath("//input[@data-test-id='MethodSelect.EmailInput']");
     protected static By errorMessage = By.xpath("//*[@data-test-id='MethodSelect.EmailInputError']");
     protected static By facebookBtn = By.xpath("//button[@data-test-id='MethodSelect.Facebook']");
